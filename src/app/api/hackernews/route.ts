@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import { XMLParser } from "fast-xml-parser";
 import {
   HACKERNEWS_URL,
