@@ -19,5 +19,13 @@ export async function GET() {
       return Response.json(createErrResponse(err), { status: err.status });
     });
 
-  return Response.json(rssFeed, RESPONSE_OK);
+  return Response.json(
+    {
+      title: rssFeed.rss.channel.title,
+      link: rssFeed.rss.channel.link,
+      description: rssFeed.rss.channel.description,
+      items: rssFeed.rss.channel.item,
+    },
+    RESPONSE_OK
+  );
 }
