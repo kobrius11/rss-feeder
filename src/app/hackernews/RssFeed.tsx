@@ -45,15 +45,22 @@ export default function HackerNewsRssFeed() {
   console.log(rssFeed);
 
   return (
-    <div>
-      <Link
-        href={(rssFeed as rssFeed).link}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {(rssFeed as rssFeed).title}
-      </Link>
-      <p>{(rssFeed as rssFeed).description}</p>
+    <div className="">
+      <div className="">
+        <Link
+          className="flex flex-col items-center justify-center bg-slate-900"
+          href={(rssFeed as rssFeed).link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h1 className="text-8xl p-10 text-center">
+            {" "}
+            {(rssFeed as rssFeed).title}
+          </h1>{" "}
+          <p className="mb-6 text-lg">{(rssFeed as rssFeed).description}</p>
+        </Link>
+      </div>
+
       {(rssFeed as rssFeed).items.map((item, index) => {
         return (
           <div key={index}>
