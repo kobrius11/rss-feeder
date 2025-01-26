@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const HACKERNEWS_API_ENDP = new URL("http://localhost:3000/api/hackernews");
+const HACKERNEWS_API_PROD_ENDP = new URL("https://rss-feeder-kobrius11s-projects.vercel.app/")
+const isProd = process.env.NODE_ENV === 'production';
 
 interface newsItem {
   title: string;
@@ -30,7 +32,7 @@ export default function HackerNewsRssFeed() {
   const [rssFeed, setRssFeed] = useState<rssFeed | object>({});
 
   const getRSSFeed = async () => {
-    const rssFeed = await fetch(HACKERNEWS_API_ENDP)
+    const rssFeed = await fetch(isProd ? HACKERNEWS_API_ENDP : HACKERNEWS_API_PROD_ENDP)
       .then((resp) => resp.json())
       .then((json) => json)
       .catch((err) => err);
