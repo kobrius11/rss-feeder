@@ -35,7 +35,7 @@ export default function HackerNewsRssFeed() {
   const [rssFeed, setRssFeed] = useState<rssFeed | object>({});
 
   const getRSSFeed = async () => {
-    const rssFeed = await fetch(isProd ? HACKERNEWS_API_ENDP : HACKERNEWS_API_PROD_ENDP)
+    const rssFeed = await fetch(isProd ? HACKERNEWS_API_PROD_ENDP : HACKERNEWS_API_ENDP)
       .then((resp) => resp.json())
       .then((json) => json)
       .catch((err) => err);
