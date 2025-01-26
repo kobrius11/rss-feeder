@@ -12,7 +12,11 @@ interface newsItem {
   guid: string;
   pubDate: string;
   author: string;
-  enclosure: string;
+  enclosure: {
+    length: string;
+    type: string;
+    url: string;
+  };
 }
 
 interface rssFeed {
