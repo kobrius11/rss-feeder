@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import HackerNewsRssFeed from "./RssFeed";
 
 export default function HackerNewsPage() {
