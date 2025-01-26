@@ -1,5 +1,3 @@
-export const dynamic = "force-static";
-
 import { XMLParser } from "fast-xml-parser";
 import {
   HACKERNEWS_URL,
@@ -11,7 +9,10 @@ export async function GET() {
   const rssFeed = await fetch(HACKERNEWS_URL)
     .then((resp) => resp.text())
     .then((text) => {
-      const parser = new XMLParser();
+      const parser = new XMLParser({
+        ignoreAttributes: false,
+        attributeNamePrefix: ''
+      });
       const doc = parser.parse(text);
       return doc;
     })
