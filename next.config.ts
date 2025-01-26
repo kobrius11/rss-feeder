@@ -4,7 +4,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: 'export',
+  // output: 'export',
   // basePath: isProd ? '/rss-feeder' : '',
   images: {
     domains: ['blogger.googleusercontent.com'],
