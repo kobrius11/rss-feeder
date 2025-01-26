@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const HACKERNEWS_API_ENDP = new URL("http://localhost:3000/api/hackernews");
-const HACKERNEWS_API_PROD_ENDP = new URL("https://rss-feeder-kobrius11s-projects.vercel.app/")
+const HACKERNEWS_API_PROD_ENDP = new URL("https://rss-feeder-kobrius11s-projects.vercel.app/api/hackernews")
 const isProd = process.env.NODE_ENV === 'production';
 
 interface newsItem {
