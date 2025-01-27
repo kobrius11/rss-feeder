@@ -58,7 +58,7 @@ export default function HackerNewsRssFeed() {
   }
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <div className="">
         <Link
           className="flex flex-col items-center justify-center "
