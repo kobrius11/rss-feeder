@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "@/app/lib/settings";
+import RssFeedContainer from "@/app/components/containers/RssFeedContainer";
 
 const HACKERNEWS_API_ENDP = new URL("/api/hackernews", BASE_URL);
 
@@ -58,7 +59,7 @@ export default function HackerNewsRssFeed() {
   }
 
   return (
-    <div className="overflow-hidden">
+    <div className="">
       <div className="">
         <Link
           className="flex flex-col items-center justify-center "
@@ -75,9 +76,8 @@ export default function HackerNewsRssFeed() {
 
       {(rssFeed as rssFeed).items.map((item, index) => {
         return (
-          <div
+          <RssFeedContainer
             key={item.guid + index}
-            className="grid md:grid-cols-[1fr_1fr] md:grid-rows-none md:m-6 grid-rows-[1fr_1fr]"
           >
             <div
               className={`
@@ -117,7 +117,7 @@ export default function HackerNewsRssFeed() {
                 height={612}
               />
             </div>
-          </div>
+          </RssFeedContainer>
         );
       })}
     </div>

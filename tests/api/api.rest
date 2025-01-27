@@ -3,3 +3,11 @@ GET https://feeds.feedburner.com/TheHackersNews
 ###
 
 GET http://localhost:3000/api/hackernews
+
+###
+
+GET https://fivethirtyeight.com/feed/
+
+###
+
+GET http://localhost:3000/api/fivethirtyeight

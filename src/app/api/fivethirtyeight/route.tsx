@@ -1,12 +1,12 @@
 import { XMLParser } from "fast-xml-parser";
 import {
-  HACKERNEWS_URL,
+    FIVETHIRTYEIGHT_URL,
   RESPONSE_OK,
   createErrResponse,
 } from "@/app/api/common";
 
 export async function GET() {
-  const rssFeed = await fetch(HACKERNEWS_URL)
+  const rssFeed = await fetch(FIVETHIRTYEIGHT_URL)
     .then((resp) => resp.text())
     .then((text) => {
       const parser = new XMLParser({

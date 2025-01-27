@@ -1,4 +1,6 @@
 export const HACKERNEWS_URL = new URL("https://feeds.feedburner.com/TheHackersNews");
+export const FIVETHIRTYEIGHT_URL = new URL("https://fivethirtyeight.com/feed/")
+
 export const REQUEST_INIT = {
     headers: {
         'User-Agent': 'RSS-feeder app by kobrius11 (https://github.com/kobrius11/rss-feeder)',
