@@ -17,10 +17,13 @@ export default function Header() {
           </h1>
         </Link>
 
-      <nav className="flex flex-col items-center justify-center text-nowrap">
-        <ul>
+      <nav className="">
+        <ul className="flex flex-col md:flex-row items-center justify-center text-nowrap min-h-20">
           <li className="mx-3">
             <Link className="uppercase " href="/hackernews">HackerNews</Link>
+          </li>
+          <li className="mx-3">
+            <Link className="uppercase " href="/fivethirtyeight">FiveThirtyEight</Link>
           </li>
         </ul>
       </nav>
