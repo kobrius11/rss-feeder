@@ -30,7 +30,7 @@ interface rssFeed {
 }
 
 export default function FiveThrityEightRssFeed() {
-  const [rssFeed, setRssFeed] = useState<rssFeed | object>({});
+  const [rssFeed, setRssFeed] = useState({});
   const [isLoading, setLoading] = useState(true);
 
   const fetchRssFeed = async () => {
@@ -59,18 +59,18 @@ export default function FiveThrityEightRssFeed() {
       <div className="">
         <Link
           className="flex flex-col items-center justify-center "
-          href={(rssFeed as rssFeed).link}
+          href={ rssFeed.link }
           target="_blank"
           rel="noopener noreferrer"
         >
           <h1 className="text-8xl p-10 text-center">
-            {(rssFeed as rssFeed).title}
+            { rssFeed.title }
           </h1>
-          <p className="mb-6 text-lg text-center">{(rssFeed as rssFeed).description}</p>
+          <p className="mb-6 text-lg text-center">{ rssFeed.description }</p>
         </Link>
       </div>
 
-      {(rssFeed as rssFeed).items.map((item, index) => {
+      { rssFeed.items.map((item, index) => {
         return (
           <RssFeedContainer
             key={item.guid + index}
