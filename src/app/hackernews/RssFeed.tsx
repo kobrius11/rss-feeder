@@ -2,33 +2,13 @@
 // export const dynamic = 'force-dynamic';
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "@/app/lib/settings";
-import RssFeedContainer from "@/app/components/containers/RssFeedContainer";
+import { rssFeed } from "./interfaces";
+import HackerNewsCard from "./NewsCard";
 
 const HACKERNEWS_API_ENDP = new URL("/api/hackernews", BASE_URL);
 
-interface newsItem {
-  title: string;
-  description: string;
-  link: string;
-  guid: string;
-  pubDate: string;
-  author: string;
-  enclosure: {
-    length: string;
-    type: string;
-    url: string;
-  };
-}
-
-interface rssFeed {
-  title: string;
-  link: string;
-  description: string;
-  items: newsItem[];
-}
 
 export default function HackerNewsRssFeed() {
   const [rssFeed, setRssFeed] = useState<rssFeed | object>({});
@@ -76,48 +56,7 @@ export default function HackerNewsRssFeed() {
 
       {(rssFeed as rssFeed).items.map((item, index) => {
         return (
-          <RssFeedContainer
-            key={item.guid + index}
-          >
-            <div
-              className={`
-                p-6 
-                ${index % 2 === 0 ? "md:order-1" : "md:order-2"}
-                row-start-2
-                md:row-start-auto`}
-            >
-              <Link
-                className=""
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h1 className="text-2xl font-semibold text-center m-2">
-                  {item.title}
-                </h1>
-              </Link>
-              <h3 className="text-lg font-semibold text-center mb-3">
-                {item.author}
-              </h3>
-              <p>{item.description}</p>
-            </div>
-
-            <div
-              className={`flex items-center justify-center ${
-                index % 2 === 0 ? "md:order-2" : "md:order-1"}
-                row-start-1 
-                md:row-start-auto
-              `}
-            >
-              <Image
-                className=""
-                src={item.enclosure.url}
-                alt={item.title}
-                width={612}
-                height={612}
-              />
-            </div>
-          </RssFeedContainer>
+          <HackerNewsCard key={item.guid + index} index={index} item={item} />
         );
       })}
     </div>
