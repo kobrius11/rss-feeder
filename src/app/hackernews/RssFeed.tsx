@@ -1,14 +1,13 @@
 "use client";
-// export const dynamic = 'force-dynamic';
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "@/app/lib/settings";
+import FadeInSection from "@/app/components/FadeInSection";
 import { rssFeed } from "./interfaces";
 import HackerNewsCard from "./NewsCard";
 
 const HACKERNEWS_API_ENDP = new URL("/api/hackernews", BASE_URL);
-
 
 export default function HackerNewsRssFeed() {
   const [rssFeed, setRssFeed] = useState<rssFeed | object>({});
@@ -40,19 +39,23 @@ export default function HackerNewsRssFeed() {
 
   return (
     <div className="">
-      <div className="">
-        <Link
-          className="flex flex-col items-center justify-center "
-          href={(rssFeed as rssFeed).link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h1 className="text-8xl p-10 text-center">
-            {(rssFeed as rssFeed).title}
-          </h1>
-          <p className="mb-6 text-lg text-center">{(rssFeed as rssFeed).description}</p>
-        </Link>
-      </div>
+      <FadeInSection>
+        <div className="">
+          <Link
+            className="flex flex-col items-center justify-center "
+            href={(rssFeed as rssFeed).link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h1 className="text-8xl p-10 text-center">
+              {(rssFeed as rssFeed).title}
+            </h1>
+            <p className="mb-6 text-lg text-center">
+              {(rssFeed as rssFeed).description}
+            </p>
+          </Link>
+        </div>
+      </FadeInSection>
 
       {(rssFeed as rssFeed).items.map((item, index) => {
         return (

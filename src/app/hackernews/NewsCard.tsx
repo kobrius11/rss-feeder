@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RssFeedContainer from "@/app/components/containers/RssFeedContainer";
 import { newsItem } from "./interfaces";
+import FadeInSection from "@/app/components/FadeInSection";
 
 interface HackerNewsCardProps {
     item: newsItem;
@@ -13,8 +14,10 @@ interface HackerNewsCardProps {
 
 export default function HackerNewsCard({ item, index }: HackerNewsCardProps) {
     const [ likeCounter, setLikeCounter ] = useState(0);
+    const [ comments, setComment ] = useState<string[]>([]);
 
     return (
+      <FadeInSection>
         <RssFeedContainer>
             <div
               className={`
@@ -38,11 +41,38 @@ export default function HackerNewsCard({ item, index }: HackerNewsCardProps) {
               </h3>
               <p>{item.description}</p>
 
-              <div className="flex flex-col items-center">
+              <div className="flex flex-row justify-center p-4 m-1">
                 <button
                     onClick={() => setLikeCounter(likeCounter +1)}
-                    className="bg-lime-500"
-                >{likeCounter}Like</button>
+                    className="flex flex-row justify-center items-center" 
+                >
+                  <p
+                    className="text-lg"
+                  >{likeCounter}</p> 
+                <Image
+                  className="dark:invert hover:scale-125 transform transition-transform"
+                  src={"socials/like-button.svg"}
+                  alt={"Like Button image"}
+                  width={24}
+                  height={24}
+                />
+                </button>
+                <button
+                    onChange={() => setComment(comments.push())}
+                    className="flex flex-row justify-center items-center" 
+                >
+                  <p
+                    className="text-lg"
+                  >{likeCounter}</p> 
+                <Image
+                  className="dark:invert hover:scale-125 transform transition-transform"
+                  src={"socials/comment-button.svg"}
+                  alt={"comment Button image"}
+                  width={24}
+                  height={24}
+                />
+                </button>
+
               </div>
             </div>
 
@@ -62,5 +92,6 @@ export default function HackerNewsCard({ item, index }: HackerNewsCardProps) {
               />
             </div>
           </RssFeedContainer>
+          </FadeInSection>
     );
 }
