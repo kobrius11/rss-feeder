@@ -14,7 +14,7 @@ interface HackerNewsCardProps {
 
 export default function HackerNewsCard({ item, index }: HackerNewsCardProps) {
     const [ likeCounter, setLikeCounter ] = useState(0);
-    const [ comments, setComment ] = useState<string[]>([]);
+    // const [ comments, setComment ] = useState<string[]>([]);
 
     return (
       <FadeInSection>
@@ -58,7 +58,7 @@ export default function HackerNewsCard({ item, index }: HackerNewsCardProps) {
                 />
                 </button>
                 <button
-                    onChange={() => setComment(comments.push())}
+                    // onChange={""}
                     className="flex flex-row justify-center items-center" 
                 >
                   <p
